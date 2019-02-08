@@ -1,7 +1,7 @@
 {
   "name": "react-use-request",
-  "version": "1.0.0",
-  "description": "react-use-request React component",
+  "version": "0.0.1",
+  "description": "Experimental React hook for making HTTP requests with axios",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -21,18 +21,26 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "16.x"
+    "react": "^16.8.1"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "nwb": "0.23.x",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-router-dom": "^4.3.1"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Guilherme Santiago",
+  "homepage": "https://github.com/gsantiago/react-use-request",
   "license": "MIT",
   "repository": "",
   "keywords": [
-    "react-component"
+    "react",
+    "use",
+    "request",
+    "axios",
+    "hook",
+    "fetch",
+    "network"
   ]
 }

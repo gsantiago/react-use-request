@@ -1,15 +1,47 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import SimpleRequest from './SimpleRequest'
+import PostExample from './PostExample'
 
-import Example from '../../src'
-
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>react-use-request Demo</h1>
-      <Example/>
-    </div>
-  }
+const pages = {
+  SimpleRequest,
+  PostExample
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+const routes = Object.keys(pages)
+
+function App () {
+  return (
+    <BrowserRouter>
+      <Switch>
+        {routes.map(route => (
+          <Route
+            key={route}
+            exact
+            path={`/${route}`}
+            component={pages[route]}
+          />
+        ))}
+        <Route>
+          {() => (
+            <ul>
+              {routes.map(route => (
+                <li key={route}>
+                  <Link to={route}>
+                    {route}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  )
+}
+
+ReactDOM.render(
+  <App />,
+  document.querySelector('#demo')
+)
