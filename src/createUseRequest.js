@@ -1,4 +1,4 @@
-import { CancelToken } from 'axios'
+import defaultAxios from 'axios'
 import { useState, useEffect, useRef } from 'react'
 
 function createUseRequest ({ axios, ...rest }) {
@@ -26,7 +26,7 @@ function createUseRequest ({ axios, ...rest }) {
 
     const ref = useRef({
       first: true,
-      source: CancelToken.source()
+      source: defaultAxios.CancelToken.source()
     })
 
     const [ data, setData ] = useState()
@@ -50,7 +50,7 @@ function createUseRequest ({ axios, ...rest }) {
         setLoading(false)
         settings.onSuccess(response)
       } catch (e) {
-        if (!axios.isCancel(e)) {
+        if (!defaultAxios.isCancel(e)) {
           setLoading(false)
           setError(e)
           settings.onError(e)
