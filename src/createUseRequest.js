@@ -1,3 +1,4 @@
+import { CancelToken } from 'axios'
 import { useState, useEffect, useRef } from 'react'
 
 function createUseRequest ({ axios, ...rest }) {
@@ -25,7 +26,7 @@ function createUseRequest ({ axios, ...rest }) {
 
     const ref = useRef({
       first: true,
-      source: axios.CancelToken.source()
+      source: CancelToken.source()
     })
 
     const [ data, setData ] = useState()
